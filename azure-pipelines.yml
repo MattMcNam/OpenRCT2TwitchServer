@@ -2,8 +2,10 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: 'mattmcnam/openrct2-twitch-integration:$(build.sourceVersion)'
+  imageName: '$(dockerId)/openrct2-twitch-integration:$(build.sourceVersion)'
 
 steps:
+- script: docker login -u $(dockerId) -p $(dockerPwd)
 - script: docker build --pull -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
+- script: docker push $(imageName)
