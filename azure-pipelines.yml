@@ -5,7 +5,9 @@ variables:
   imageName: '$(dockerId)/openrct2-twitch-integration:$(build.sourceVersion)'
 
 steps:
-- script: docker login -u "$(dockerId)" -p "$(dockerPwd)"
+- script: echo "$DOCKER_PASS" | docker login -u "$(dockerId)" --password-stdin
+  env:
+    DOCKER_PASS: $(dockerPwd)
 - script: docker build --pull -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
 - script: docker push $(imageName)
