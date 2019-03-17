@@ -125,7 +125,7 @@ const init = (_tmi) => {
     if (self) return;
     if (channelName.startsWith('#')) channelName = channelName.substr(1);
     if (!channels.has(channelName)) {
-      throw new Error(`GOT JOIN FOR ${channelName} BUT CHANNEL NOT IN LIST`);
+      throw new Error(`GOT JOIN FOR ${channelName} BUT CHANNEL NOT IN LIST. CHANNELS: ${Array.from(channels.keys())}`);
     }
     console.log(`JOIN ${channelName} ${username}`);
     const channel = channels.get(channelName);
