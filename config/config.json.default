@@ -1,7 +1,0 @@
-{
-	"Name": "BotName",
-	"OAuth": "oauth:xxx",
-	"ClientID": "abc",
-	"Port": 11780,
-	"MaxMessageCount": 10
-}
