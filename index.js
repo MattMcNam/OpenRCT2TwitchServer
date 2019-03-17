@@ -3,12 +3,16 @@ console.log('Starting Twitch integration server for OpenRCT2...');
 const express = require('express');
 const tmi = require('tmi.js');
 
-const {PORT} = process.env;
+const {
+  IRC_USER,
+  IRC_PASS,
+  PORT
+} = process.env;
 
 Client = new tmi.client({
   identity: {
-    username: 'justinfan123456',
-    password: 'justinfan123456'
+    username: IRC_USER,
+    password: IRC_PASS
   },
   connection:{
     reconnect: true,
