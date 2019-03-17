@@ -16,15 +16,7 @@ function join(channelName) {
       Active: true,
       Pagination: '',
       Members: new Set(),
-      Messages: [],
-      Interval: setInterval(() => {
-        if (!channel.Active) {
-          channels.delete(channel.Name);
-          clearInterval(channel.Interval);
-        } else {
-          channel.Active = false;
-        }
-      }, 60*1000)
+      Messages: []
     };
 
     channels.set(channelName, channel);
