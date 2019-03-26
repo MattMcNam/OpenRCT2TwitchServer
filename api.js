@@ -82,12 +82,12 @@ const addNews = (channelName, data, message) => {
   }
 
   const channel = channels.get(channelName);
-  if (channel.messages.length >= MAX_NEWS_MESSAGES_PER_CHANNEL) {
+  if (channel.Messages.length >= MAX_NEWS_MESSAGES_PER_CHANNEL) {
     console.warn(`Channel ${channelName} at news message limit`);
     return;
   }
 
-  channel.messages.push({
+  channel.Messages.push({
     message: `${NEWS_COMMAND} ${data['display-name']}: ${message.substr(NEWS_COMMAND.length)}`
   })
 };
